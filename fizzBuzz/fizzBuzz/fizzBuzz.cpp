@@ -3,9 +3,19 @@
 
 #include "stdafx.h"
 
-int main()
+int main(int argc, char *argv[], char *envp[])
 {
-	for (int i = 1; i < 50; i++) {
+	int startValue = std::atoi(argv[1]);
+	int endValue = std::atoi(argv[2]);
+
+	if (endValue < startValue) {
+		std::cout << "End value should be set less than start value..." << std::endl;
+		return 0;
+	}
+
+	std::cout << "Start [" << startValue << "] to [" << endValue << "]" << std::endl;
+
+	for (int i = startValue; i < endValue; i++) {
 
 		if (i % 3 == 0 && i % 5 == 0) {
 			std::cout << "fizzbuzz" << std::endl;
